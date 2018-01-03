@@ -12,7 +12,7 @@
 </mat-button-toggle-group>
 
 Face Amount:
-<mat-slider [(ngModel)]="faceAmount" min=100000 max=500000 (change)="change()" step="5000"></mat-slider>{{faceAmount}}
+<mat-slider [(ngModel)]="faceAmount" min=100000 max=500000 (change)="change()" step="5000"></mat-slider>{{faceAmount | number}}
 
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <h2>c3js</h2>

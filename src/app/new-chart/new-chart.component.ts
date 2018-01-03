@@ -49,7 +49,8 @@ export class NewChartComponent {
   public lineChartLabels: Array<any> = _.range(31,100);
 
   public lineChartOptions: any = {
-    responsive: false
+    responsive: true,
+    maintainAspectRatio: false,
   };
   public lineChartColors: Array<any> = [];
   public lineChartLegend: boolean = true;

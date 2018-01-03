@@ -1,0 +1,19 @@
+<mat-form-field>
+  <input matInput placeholder="age" [(ngModel)]="age" >
+</mat-form-field>
+<mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="gender" (change)="change()">
+  <mat-button-toggle value="M">
+    Male
+  </mat-button-toggle>
+  <mat-button-toggle value="F">
+    Female
+  </mat-button-toggle>
+
+</mat-button-toggle-group>
+
+Face Amount:
+<mat-slider [(ngModel)]="faceAmount" min=100000 max=500000 (change)="change()" step="5000"></mat-slider>{{faceAmount}}
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<h2>c3js</h2>
+<div id="chart"></div>

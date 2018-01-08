@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+
 import { PeService } from '../pe.service';
 import * as _ from 'lodash';
+import 'AOS';
+
 
 @Component({
   selector: 'app-new-chart',
@@ -8,11 +11,21 @@ import * as _ from 'lodash';
   styleUrls: ['./new-chart.component.css']
 })
 export class NewChartComponent {
+  @ViewChild('canvasEl') canvasEl: ElementRef;
+  private context: CanvasRenderingContext2D;
+
   loading = true;
+
+  ngAfterViewInit(): void {
+    this.context = (this.canvasEl.nativeElement as HTMLCanvasElement).getContext('2d');
+
+    //this.draw();
+  }
   constructor(
     private pe: PeService
 
   ) {
+
 
     this.pe.dataSet.filter(x => x).subscribe(
       data => {
@@ -22,21 +35,30 @@ export class NewChartComponent {
           let localData = r.slice(0);
           let label = localData.shift();
 
-          if(label == 'Age') {
+          if (label == 'Age') {
             this.lineChartLabels = localData;
           }
 
-            return {
-              label: label,
-              data: localData
-            }
+          return {
+            label: label,
+            data: localData
           }
+        }
         ).filter(
           x => x.label != 'Age'
-        );
-        this.loading=false;
+          );
+        this.loading = false;
       }
     )
+
+    var chart = document.getElementById('chart');
+
+  }
+
+  export() {
+    var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('chart');
+    var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+    console.log(ctx)
 
   }
 
@@ -46,7 +68,7 @@ export class NewChartComponent {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
 
   ];
-  public lineChartLabels: Array<any> = _.range(31,100);
+  public lineChartLabels: Array<any> = _.range(31, 100);
 
   public lineChartOptions: any = {
     responsive: true,

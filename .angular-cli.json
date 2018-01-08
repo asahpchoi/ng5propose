@@ -20,9 +20,15 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/c3/c3.min.css"
+        "../node_modules/c3/c3.min.css",
+        "../node_modules/aos/dist/aos.css",
+        "../node_modules/multiple.js/multiple.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/aos/dist/aos.js",
+        "../node_modules/multiple.js/multiple.js",
+        "../node_modules/animejs/anime.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

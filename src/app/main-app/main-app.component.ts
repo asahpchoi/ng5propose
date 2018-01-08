@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeService } from '../pe.service';
 import * as c3 from 'c3';
 import {MatTableDataSource} from '@angular/material';
+import anime from 'animejs'
 
 @Component({
   selector: 'app-main-app',
@@ -54,6 +55,10 @@ export class MainAppComponent implements OnInit {
 
   ngOnInit() {
     this.change();
+  }
+
+  startAnimation() {
+
   }
 
   change() {

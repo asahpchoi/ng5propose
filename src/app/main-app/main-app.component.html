@@ -1,3 +1,4 @@
+<app-multiple></app-multiple>
 <mat-form-field>
   <input matInput placeholder="age" [(ngModel)]="age" >
 </mat-form-field>
@@ -16,4 +17,6 @@ Face Amount:
 
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <h2>c3js</h2>
-<div id="chart"></div>
+<div id="chart"  class="item"></div>
+
+<button (click)="startAnimation()">Animate</button>

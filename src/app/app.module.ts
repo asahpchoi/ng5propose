@@ -18,13 +18,17 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProgressDirective } from './progress.directive';
 import { NewChartComponent } from './new-chart/new-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { MultipleComponent } from './multiple/multiple.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainAppComponent,
     ProgressDirective,
-    NewChartComponent
+    NewChartComponent,
+    MultipleComponent
   ],
   imports: [
     BrowserModule,
